@@ -1,0 +1,23 @@
+{
+  "extends": "airbnb",
+  "env": {
+    "browser": true,
+    "node": true,
+    "mocha": true
+  },
+  "ecmaFeatures": {
+    "generators": true,
+    "restParams": true,
+    "spread": true
+  },
+  "rules": {
+    "no-prototype-builtins": 0,
+    "import/no-extraneous-dependencies": 0,
+    "react/jsx-filename-extension": 0,
+    "import/imports-first": 0,
+    "import/newline-after-import": 0,
+    "no-console": 0,
+    "comma-dangle": 0,
+    "react/prefer-stateless-function": 0
+  }
+}

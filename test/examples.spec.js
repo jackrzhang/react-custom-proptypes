@@ -4,9 +4,8 @@ import { expect } from 'chai';
 import { stub } from 'sinon';
 import { shallow } from 'enzyme';
 
-import Tweet from './../examples/Tweet.jsx';
+import Tweet from './../examples/Tweet';
 
-// console.log(errorStub.getCall(0).args);
 describe('examples', () => {
   describe('<Tweet />', () => {
     it('should have prop(s): `text`', () => {
@@ -27,10 +26,14 @@ describe('examples', () => {
       console.error.restore();
     });
 
-    it('should require `text` prop to be of type string', () => {
+    it('should validate `text` prop to be of type string and less than 140 characters', () => {
       const errorStub = stub(console, 'error');
+
       shallow(
-        <Tweet text={42} />
+        <div>
+          <Tweet text={42} />
+          <Tweet text={'asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfsadfasdfsadfasdfasdfasdfsadfsadfadfasdfasdfasdfasdfasdfsadfasdfasdfasdfsadfasfasfasfasdfasfasdfsafasf'} />
+        </div>
       );
 
       expect(errorStub.calledWithExactly(

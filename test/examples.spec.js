@@ -5,6 +5,7 @@ import { stub } from 'sinon';
 import { shallow } from 'enzyme';
 
 import Tweet from './../examples/Tweet';
+import InvalidCallbackUsage from './../examples/InvalidCallbackUsage';
 
 describe('examples', () => {
   describe('<Tweet />', () => {
@@ -12,6 +13,7 @@ describe('examples', () => {
       const wrapper = shallow(
         <Tweet text={'Dummy tweet text'} />
       );
+
       expect(wrapper.props().text).to.be.defined;
     });
 
@@ -28,7 +30,6 @@ describe('examples', () => {
 
     it('should validate `text` prop to be of type string and less than 140 characters', () => {
       const errorStub = stub(console, 'error');
-
       shallow(
         <div>
           <Tweet text={42} />
@@ -38,6 +39,21 @@ describe('examples', () => {
 
       expect(errorStub.calledWithExactly(
         'Warning: Failed prop type: Invalid prop `text` supplied to `Tweet`. Validation failed.\n    in Tweet'
+      )).to.equal(true);
+
+      console.error.restore();
+    });
+  });
+
+  describe('<InvalidCallbackUsage />', () => {
+    it('should notify developer of incorrect usage of `callback` parameter', () => {
+      const errorStub = stub(console, 'error');
+      shallow(
+        <InvalidCallbackUsage text={'Dummy text'} />
+      );
+
+      expect(errorStub.calledWithExactly(
+        'Warning: Failed prop type: Invalid createPropType input: callback parameter must evaluate to a boolean value. See https://github.com/jackrzhang/react-create-proptype#parameters for details.\n    in InvalidCallbackUsage'
       )).to.equal(true);
 
       console.error.restore();

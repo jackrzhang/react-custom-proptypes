@@ -7,7 +7,7 @@ const Tweet = props => (
 
 Tweet.propTypes = {
   text: createPropType(
-    prop => typeof prop === 'string' && prop.length < 140
+    prop => prop.length < 140
   ).isRequired
 };
 

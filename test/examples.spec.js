@@ -6,8 +6,9 @@ import { shallow } from 'enzyme';
 
 import Tweet from './../examples/Tweet';
 import InvalidCallbackUsage from './../examples/InvalidCallbackUsage';
+import InvalidMessageUsage from './../examples/InvalidMessageUsage';
 
-describe('examples', () => {
+describe('Examples', () => {
   describe('<Tweet />', () => {
     it('should have prop(s): `text`', () => {
       const wrapper = shallow(
@@ -23,6 +24,12 @@ describe('examples', () => {
 
       expect(errorStub.calledWithExactly(
         'Warning: Failed prop type: The `text` is marked as required in `Tweet`, but its value is `undefined`.\n    in Tweet'
+      )).to.equal(true);
+
+      shallow(<Tweet text={null} />);
+
+      expect(errorStub.calledWithExactly(
+        'Warning: Failed prop type: The `text` is marked as required in `Tweet`, but its value is `null`.\n    in Tweet'
       )).to.equal(true);
 
       console.error.restore();
@@ -54,6 +61,21 @@ describe('examples', () => {
 
       expect(errorStub.calledWithExactly(
         'Warning: Failed prop type: Invalid createPropType input: callback parameter must evaluate to a boolean value. See https://github.com/jackrzhang/react-create-proptype#parameters for details.\n    in InvalidCallbackUsage'
+      )).to.equal(true);
+
+      console.error.restore();
+    });
+  });
+
+  describe('<InvalidMessageUsage />', () => {
+    it('should notify developer of incorrect usage of `message` parameter', () => {
+      const errorStub = stub(console, 'error');
+      shallow(
+        <InvalidMessageUsage text={'Dummy text'} />
+      );
+
+      expect(errorStub.calledWithExactly(
+        'Warning: Failed prop type: Invalid createPropType input: message parameter must be of type string. See https://github.com/jackrzhang/react-create-proptype#parameters for details.\n    in InvalidMessageUsage'
       )).to.equal(true);
 
       console.error.restore();

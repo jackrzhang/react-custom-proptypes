@@ -60,7 +60,7 @@ describe('Examples', () => {
       );
 
       expect(errorStub.calledWithExactly(
-        'Warning: Failed prop type: Invalid createPropType input: callback parameter must evaluate to a boolean value. See https://github.com/jackrzhang/react-create-proptype#parameters for details.\n    in InvalidCallbackUsage'
+        'Warning: Failed prop type: Invalid createPropType input: callback parameter must evaluate to a boolean value. See https://github.com/jackrzhang/react-custom-proptypes#parameters for details.\n    in InvalidCallbackUsage'
       )).to.equal(true);
 
       console.error.restore();
@@ -75,7 +75,7 @@ describe('Examples', () => {
       );
 
       expect(errorStub.calledWithExactly(
-        'Warning: Failed prop type: Invalid createPropType input: message parameter must be of type string. See https://github.com/jackrzhang/react-create-proptype#parameters for details.\n    in InvalidMessageUsage'
+        'Warning: Failed prop type: Invalid createPropType input: message parameter must be of type string. See https://github.com/jackrzhang/react-custom-proptypes#parameters for details.\n    in InvalidMessageUsage'
       )).to.equal(true);
 
       console.error.restore();

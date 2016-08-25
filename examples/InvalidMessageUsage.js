@@ -1,5 +1,5 @@
 import React from 'react';
-import createPropType from './../lib/create-proptype';
+import createPropType from './../lib/custom-proptypes';
 
 const InvalidMessageUsage = props => (
   <div>{props.text}</div>
@@ -8,7 +8,7 @@ const InvalidMessageUsage = props => (
 InvalidMessageUsage.propTypes = {
   text: createPropType(
     prop => typeof prop === 'string',
-    ['An custom message should be passed in as a value of type string.']
+    ['A custom message should be passed in as a value of type string.']
   )
 };
 

@@ -1,18 +1,18 @@
 {
-  "name": "react-create-proptype",
+  "name": "react-custom-proptypes",
   "version": "1.0.0",
   "description": "",
   "license": "MIT",
   "author": "Jack R. Zhang <15jzhang@gmail.com>",
   "keywords": [
   ],
-  "main": "build/create-proptype",
+  "main": "build/custom-proptypes",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jackrzhang/react-create-proptype"
+    "url": "https://github.com/jackrzhang/react-custom-proptypes"
   },
   "bugs": {
-    "url": "https://github.com/jackrzhang/react-create-proptype/issues"
+    "url": "https://github.com/jackrzhang/react-custom-proptypes/issues"
   },
   "files": [
     "*.md",

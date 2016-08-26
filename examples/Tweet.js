@@ -1,5 +1,5 @@
 import React from 'react';
-import createPropType from './../lib/custom-proptypes';
+import { createPropType } from './../lib/custom-proptypes';
 
 const Tweet = props => (
   <div>{props.text}</div>

@@ -4,11 +4,11 @@ import { expect } from 'chai';
 import { stub } from 'sinon';
 import { shallow } from 'enzyme';
 
-import Tweet from './../examples/Tweet';
-import InvalidCallbackUsage from './../examples/InvalidCallbackUsage';
-import InvalidMessageUsage from './../examples/InvalidMessageUsage';
+import Tweet from './../examples/create-proptype/Tweet';
+import InvalidCallbackUsage from './../examples/create-proptype/InvalidCallbackUsage';
+import InvalidMessageUsage from './../examples/create-proptype/InvalidMessageUsage';
 
-describe('Examples', () => {
+describe('createPropType', () => {
   describe('<Tweet />', () => {
     it('should have prop(s): `text`', () => {
       const wrapper = shallow(

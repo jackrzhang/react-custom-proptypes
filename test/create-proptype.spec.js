@@ -1,7 +1,7 @@
-/* eslint-disable no-unused-expressions, max-len */
+/* eslint-disable no-unused-expressions, max-len, func-names */
 import React from 'react';
 import { expect } from 'chai';
-import { stub } from 'sinon';
+import sinon, { stub } from 'sinon';
 import { shallow } from 'enzyme';
 
 import Tweet from './../examples/create-proptype/Tweet';
@@ -19,8 +19,9 @@ describe('createPropType', () => {
       expect(wrapper.props().text).to.be.defined;
     });
 
-    it('should require `text` prop to be supplied', () => {
-      const errorStub = stub(console, 'error');
+    it('should require `text` prop to be supplied',
+    sinon.test(function () {
+      const errorStub = this.stub(console, 'error');
       shallow(<Tweet />);
 
       expect(errorStub.calledWithExactly(
@@ -32,12 +33,11 @@ describe('createPropType', () => {
       expect(errorStub.calledWithExactly(
         'Warning: Failed prop type: The `text` is marked as required in `Tweet`, but its value is `null`.\n    in Tweet'
       )).to.equal(true);
+    }));
 
-      console.error.restore();
-    });
-
-    it('should validate `text` prop to be of type string and less than 140 characters', () => {
-      const errorStub = stub(console, 'error');
+    it('should validate `text` prop to be of type string and less than 140 characters',
+    sinon.test(function () {
+      const errorStub = this.stub(console, 'error');
       shallow(
         <div>
           <Tweet text={42} />
@@ -48,9 +48,7 @@ describe('createPropType', () => {
       expect(errorStub.calledWithExactly(
         'Warning: Failed prop type: Invalid prop `text` supplied to `Tweet`. Validation failed.\n    in Tweet'
       )).to.equal(true);
-
-      console.error.restore();
-    });
+    }));
   });
 
   describe('<Card />', () => {
@@ -62,11 +60,40 @@ describe('createPropType', () => {
       expect(wrapper.props().suit).to.be.defined;
       expect(wrapper.props().value).to.be.defined;
     });
+
+    it('should require props `suit` & `value` to be supplied',
+    sinon.test(function () {
+      const errorStub = this.stub(console, 'error');
+      shallow(<Card value={8} />);
+
+      expect(errorStub.calledWithExactly(
+        'Warning: Failed prop type: The `suit` is marked as required in `Card`, but its value is `undefined`.\n    in Card'
+      )).to.equal(true);
+
+      shallow(<Card suit={null} />);
+
+      expect(errorStub.calledWithExactly(
+        'Warning: Failed prop type: The `suit` is marked as required in `Card`, but its value is `null`.\n    in Card'
+      )).to.equal(true);
+
+      shallow(<Card suit={'spades'} />);
+
+      expect(errorStub.calledWithExactly(
+        'Warning: Failed prop type: The `value` is marked as required in `Card`, but its value is `undefined`.\n    in Card'
+      )).to.equal(true);
+
+      shallow(<Card value={null} />);
+
+      expect(errorStub.calledWithExactly(
+        'Warning: Failed prop type: The `value` is marked as required in `Card`, but its value is `null`.\n    in Card'
+      )).to.equal(true);
+    }));
   });
 
   describe('<InvalidCallbackUsage />', () => {
-    it('should notify developer of incorrect usage of `callback` parameter', () => {
-      const errorStub = stub(console, 'error');
+    it('should notify developer of incorrect usage of `callback` parameter',
+    sinon.test(function () {
+      const errorStub = this.stub(console, 'error');
       shallow(
         <InvalidCallbackUsage text={'Dummy text'} />
       );
@@ -74,14 +101,13 @@ describe('createPropType', () => {
       expect(errorStub.calledWithExactly(
         'Warning: Failed prop type: Invalid createPropType input: callback parameter must evaluate to a boolean value. See https://github.com/jackrzhang/react-custom-proptypes#parameters for details.\n    in InvalidCallbackUsage'
       )).to.equal(true);
-
-      console.error.restore();
-    });
+    }));
   });
 
   describe('<InvalidMessageUsage />', () => {
-    it('should notify developer of incorrect usage of `message` parameter', () => {
-      const errorStub = stub(console, 'error');
+    it('should notify developer of incorrect usage of `message` parameter',
+    sinon.test(function () {
+      const errorStub = this.stub(console, 'error');
       shallow(
         <InvalidMessageUsage text={'Dummy text'} />
       );
@@ -89,8 +115,6 @@ describe('createPropType', () => {
       expect(errorStub.calledWithExactly(
         'Warning: Failed prop type: Invalid createPropType input: message parameter must be of type string. See https://github.com/jackrzhang/react-custom-proptypes#parameters for details.\n    in InvalidMessageUsage'
       )).to.equal(true);
-
-      console.error.restore();
-    });
+    }));
   });
 });

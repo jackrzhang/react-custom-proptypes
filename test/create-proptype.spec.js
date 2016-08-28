@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-expressions, max-len, func-names */
 import React from 'react';
 import { expect } from 'chai';
-import sinon, { stub } from 'sinon';
+import sinon from 'sinon';
 import { shallow } from 'enzyme';
 
 import Tweet from './../examples/create-proptype/Tweet';

@@ -5,6 +5,7 @@ import { stub } from 'sinon';
 import { shallow } from 'enzyme';
 
 import Tweet from './../examples/create-proptype/Tweet';
+import Card from './../examples/create-proptype/Card';
 import InvalidCallbackUsage from './../examples/create-proptype/InvalidCallbackUsage';
 import InvalidMessageUsage from './../examples/create-proptype/InvalidMessageUsage';
 
@@ -49,6 +50,17 @@ describe('createPropType', () => {
       )).to.equal(true);
 
       console.error.restore();
+    });
+  });
+
+  describe('<Card />', () => {
+    it('should have prop(s): `suit` & `value`', () => {
+      const wrapper = shallow(
+        <Card suit={'spades'} value={8} />
+      );
+
+      expect(wrapper.props().suit).to.be.defined;
+      expect(wrapper.props().value).to.be.defined;
     });
   });
 

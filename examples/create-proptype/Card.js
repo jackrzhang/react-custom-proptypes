@@ -19,9 +19,9 @@ const suitPropType = createPropType(
 
 const valuePropType = createPropType(
   prop =>
-    typeof prop === 'number' &&
     Number.isInteger(prop) &&
-    prop >= 1 && prop <= 12,
+    prop >= 1 &&
+    prop <= 12,
   'Invalid prop `value`: must be an integer from 1 - 12.'
 );
 

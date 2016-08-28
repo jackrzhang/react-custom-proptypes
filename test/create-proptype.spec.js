@@ -94,14 +94,30 @@ describe('createPropType', () => {
       const errorStub = this.stub(console, 'error');
       shallow(
         <div>
-          <Card suit={'invalid string'} />
-          <Card suit={24} />
-          <Card suit={[]} />
+          <Card suit={'invalid string'} value={8} />
+          <Card suit={24} value={8} />
+          <Card suit={[]} value={8} />
         </div>
       );
 
       expect(errorStub.calledWithExactly(
         'Warning: Failed prop type: Invalid prop `suit`: must be `spades`, `hearts`, `diamonds`, or `clubs`.\n    in Card'
+      )).to.equal(true);
+    }));
+
+    it('should validate `value` prop to be an integer from 1 to 12',
+    sinon.test(function () {
+      const errorStub = this.stub(console, 'error');
+      shallow(
+        <div>
+          <Card suit={'clubs'} value={NaN} />
+          <Card suit={'clubs'} value={24} />
+          <Card suit={'clubs'} value={0} />
+        </div>
+      );
+
+      expect(errorStub.calledWithExactly(
+        'Warning: Failed prop type: Invalid prop `value`: must be an integer from 1 - 12.\n    in Card'
       )).to.equal(true);
     }));
   });

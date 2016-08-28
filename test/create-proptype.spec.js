@@ -88,6 +88,22 @@ describe('createPropType', () => {
         'Warning: Failed prop type: The `value` is marked as required in `Card`, but its value is `null`.\n    in Card'
       )).to.equal(true);
     }));
+
+    it('should validate `suit` prop to be `spades`, `hearts`, `diamonds`, or `clubs`.',
+    sinon.test(function () {
+      const errorStub = this.stub(console, 'error');
+      shallow(
+        <div>
+          <Card suit={'invalid string'} />
+          <Card suit={24} />
+          <Card suit={[]} />
+        </div>
+      );
+
+      expect(errorStub.calledWithExactly(
+        'Warning: Failed prop type: Invalid prop `suit`: must be `spades`, `hearts`, `diamonds`, or `clubs`.\n    in Card'
+      )).to.equal(true);
+    }));
   });
 
   describe('<InvalidCallbackUsage />', () => {

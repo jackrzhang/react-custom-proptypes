@@ -5,6 +5,7 @@ import sinon from 'sinon';
 import { shallow } from 'enzyme';
 
 import TweetFeed from './../examples/create-iterator-proptype/TweetFeed';
+import CardDeck from './../examples/create-iterator-proptype/CardDeck';
 import InvalidCallbackUsage from './../examples/create-iterator-proptype/InvalidCallbackUsage';
 import InvalidMessageUsage from './../examples/create-iterator-proptype/InvalidMessageUsage';
 
@@ -47,6 +48,77 @@ describe('createIteratorPropType', () => {
 
       expect(errorStub.calledWithExactly(
         'Warning: Failed prop type: Invalid prop `tweets[0]` supplied to `TweetFeed`. Validation failed.\n    in TweetFeed'
+      )).to.equal(true);
+    }));
+  });
+
+  describe('<CardDeck />', () => {
+    const validCards = {
+      1: {
+        suit: 'spades',
+        value: 1
+      },
+      25: {
+        suit: 'clubs',
+        value: 1
+      }
+    };
+
+    const invalidSuitCards = {
+      1: {
+        suit: 'invalid suit',
+        value: 1
+      },
+      25: {
+        suit: 'clubs',
+        value: 1
+      }
+    };
+
+    const invalidValueCards = {
+      1: {
+        suit: 'spades',
+        value: 15
+      },
+      25: {
+        suit: 'clubs',
+        value: 1
+      }
+    };
+
+    const invalidKeyCards = {
+      65: {
+        suit: 'spades',
+        value: 1
+      },
+      invalidKey: {
+        suit: 'clubs',
+        value: 1
+      }
+    };
+
+    it('should have prop(s): `cards`', () => {
+      const wrapper = shallow(
+        <CardDeck cards={validCards} />
+      );
+
+      expect(wrapper.props().cards).to.be.defined;
+    });
+
+    it('should validate `cards` prop to have keys that are numbers from 1 - 52 and ' +
+       'elements that have valid suit and value properties',
+    sinon.test(function () {
+      const errorStub = this.stub(console, 'error');
+      shallow(
+        <div>
+          <CardDeck cards={invalidKeyCards} />
+          <CardDeck cards={invalidSuitCards} />
+          <CardDeck cards={invalidValueCards} />
+        </div>
+      );
+
+      expect(errorStub.calledWithExactly(
+        'Warning: Failed prop type: Invalid prop `cards.1` supplied to `CardDeck`. Validation failed.\n    in CardDeck'
       )).to.equal(true);
     }));
   });

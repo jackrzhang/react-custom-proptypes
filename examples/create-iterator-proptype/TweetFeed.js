@@ -12,7 +12,7 @@ const TweetFeed = props => (
 TweetFeed.propTypes = {
   tweets: PropTypes.arrayOf(createIteratorPropType(
     prop => typeof prop === 'string' && prop.length < 140
-  ))
+  )).isRequired
 };
 
 export default TweetFeed;

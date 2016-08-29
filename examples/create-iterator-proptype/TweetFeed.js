@@ -2,9 +2,11 @@ import React, { PropTypes } from 'react';
 import { createIteratorPropType } from './../../lib/custom-proptypes';
 
 const TweetFeed = props => (
-  props.tweets.map(tweet =>
-    <div>{tweet}</div>
-  )
+  <div>
+    {props.tweets.map((tweet, index) => (
+      <div key={index}>{tweet}</div>
+    ))}
+  </div>
 );
 
 TweetFeed.propTypes = {

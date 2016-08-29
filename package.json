@@ -1,6 +1,6 @@
 {
   "name": "react-custom-proptypes",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Simple, precise, and chainable React Custom PropTypes.",
   "license": "MIT",
   "author": "Jack R. Zhang <15jzhang@gmail.com>",

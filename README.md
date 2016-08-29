@@ -5,7 +5,7 @@
 
 React Custom PropTypes exposes a simple API for creating **precisely defined**, **dependency-free**, and **chainable** React PropType validators.
 
-Check out the [examples]() for various use cases.
+Check out the [examples](https://github.com/jackrzhang/react-custom-proptypes/blob/master/examples) for various use cases.
 
 ##Installation
 ```sh

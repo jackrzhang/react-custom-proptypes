@@ -14,43 +14,73 @@ $ npm install react react-dom react-custom-proptypes --save
 
 ##API
 ###`createPropType`
-####Syntax:
+###Syntax
 ```
 createPropType(callback[, message])
 ```
 
-####Usage:
-```jsx
-import React from 'react';
-import { createPropType } from react-custom-proptypes';
-
-const Tweet = props => (
-  <div>{props.text}</div>
-);
-
-Tweet.propTypes = {
-  text: createPropType(
-    prop => typeof prop === 'string' && prop.length < 140
-  ).isRequired
-};
-```
-
-####Parameters
+###Parameters
 #####`callback` : function
 Function that returns a boolean representing the validation of the proptype, taking a single argument: `prop`, the value of the prop
 
 #####`message` : string
 Optional. Use this value to specify a custom error message.
 
+###Usage
+```jsx
+import React from 'react';
+import { createPropType } from './../../lib/custom-proptypes';
+
+const Card = props => (
+  <div>
+    <div>{props.suit}</div>
+    <div>{props.value}</div>
+  </div>
+);
+
+const suitPropType = createPropType(
+  prop =>
+    prop === 'spades' ||
+    prop === 'hearts' ||
+    prop === 'diamonds' ||
+    prop === 'clubs',
+  'Invalid prop `suit`: must be `spades`, `hearts`, `diamonds`, or `clubs`.'
+);
+
+const valuePropType = createPropType(
+  prop =>
+    Number.isInteger(prop) &&
+    prop >= 1 &&
+    prop <= 12,
+  'Invalid prop `value`: must be an integer from 1 - 12.'
+);
+
+Card.propTypes = {
+  suit: suitPropType.isRequired,
+  value: valuePropType.isRequired
+};
+
+export default Card;
+```
+
 ---
 
 ###`createIteratorPropType`
-####Syntax:
+###Syntax
 ```
 createIteratorPropType(callback[, message])
 ```
 
-####Usage:
+###Parameters
+#####`callback` : function
+Function that returns a boolean representing the validation of the proptype, taking two arguments: 
+ * `prop` - the value of the prop
+ * `key` - the key of the current element being processed in the iterable object.
+
+#####`message` : string
+Optional. Use this value to specify a custom error message.
+
+###Usage
 ```jsx
 import React, { PropTypes } from 'react';
 import { createIteratorPropType } from 'react-custom-proptypes';
@@ -71,15 +101,6 @@ TweetFeed.propTypes = {
 
 export default TweetFeed;
 ```
-
-####Parameters
-#####`callback` : function
-Function that returns a boolean representing the validation of the proptype, taking two arguments: 
- * `prop` - the value of the prop
- * `key` - the key of the current element being processed in the iterable object.
-
-#####`message` : string
-Optional. Use this value to specify a custom error message.
 
 ---
 

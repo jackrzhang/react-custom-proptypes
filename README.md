@@ -12,8 +12,7 @@ Check out the [examples](https://github.com/jackrzhang/react-custom-proptypes/bl
 $ npm install react react-dom react-custom-proptypes --save
 ```
 
-##API
-###`createPropType`
+##createPropType
 ###Syntax
 ```
 createPropType(callback[, message])
@@ -63,9 +62,7 @@ Card.propTypes = {
 export default Card;
 ```
 
----
-
-###`createIteratorPropType`
+##createIteratorPropType
 ###Syntax
 ```
 createIteratorPropType(callback[, message])
@@ -101,8 +98,6 @@ TweetFeed.propTypes = {
 
 export default TweetFeed;
 ```
-
----
 
 ##Contributing
 Issues and pull requests are welcome.

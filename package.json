@@ -45,6 +45,7 @@
     "eslint-plugin-import": "^1.16.0",
     "eslint-plugin-jsx-a11y": "^2.2.3",
     "eslint-plugin-react": "^6.4.0",
+    "jsdom": "^9.9.1",
     "mocha": "^3.0.2",
     "react": "^15.3.0",
     "react-addons-test-utils": "^15.3.0",

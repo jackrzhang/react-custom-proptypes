@@ -1,15 +1,15 @@
 import React from 'react';
 import { createIteratorPropType } from './../../lib/custom-proptypes';
 
-const InvalidMessageUsage = props => (
+const InvalidDescriptionUsage = props => (
   <div>{props.text}</div>
 );
 
-InvalidMessageUsage.propTypes = {
+InvalidDescriptionUsage.propTypes = {
   text: createIteratorPropType(
     prop => typeof prop === 'string',
-    ['A custom message should be passed in as a value of type string.']
+    ['A custom description should be passed in as a value of type string.']
   )
 };
 
-export default InvalidMessageUsage;
+export default InvalidDescriptionUsage;

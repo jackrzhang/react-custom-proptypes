@@ -14,7 +14,7 @@ const suitPropType = createPropType(
     prop === 'hearts' ||
     prop === 'diamonds' ||
     prop === 'clubs',
-  'Invalid prop `suit`: must be `spades`, `hearts`, `diamonds`, or `clubs`.'
+  'Must be `spades`, `hearts`, `diamonds`, or `clubs`.'
 );
 
 const valuePropType = createPropType(
@@ -22,7 +22,7 @@ const valuePropType = createPropType(
     Number.isInteger(prop) &&
     prop >= 1 &&
     prop <= 12,
-  'Invalid prop `value`: must be an integer from 1 - 12.'
+  'Must be an integer from 1 - 12.'
 );
 
 Card.propTypes = {

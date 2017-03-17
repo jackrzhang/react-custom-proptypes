@@ -7,7 +7,7 @@ import { shallow } from 'enzyme';
 import Tweet from './../examples/create-proptype/Tweet';
 import Card from './../examples/create-proptype/Card';
 import InvalidCallbackUsage from './../examples/create-proptype/InvalidCallbackUsage';
-import InvalidMessageUsage from './../examples/create-proptype/InvalidMessageUsage';
+import InvalidDescriptionUsage from './../examples/create-proptype/InvalidDescriptionUsage';
 
 describe('createPropType', () => {
   describe('<Tweet />', () => {
@@ -46,7 +46,7 @@ describe('createPropType', () => {
       );
 
       expect(errorStub.calledWithExactly(
-        'Warning: Failed prop type: Invalid prop `text` supplied to `Tweet`. Validation failed.\n    in Tweet'
+        'Warning: Failed prop type: Invalid prop `text` of type `number` supplied.\n    in Tweet'
       )).to.equal(true);
     }));
   });
@@ -101,7 +101,7 @@ describe('createPropType', () => {
       );
 
       expect(errorStub.calledWithExactly(
-        'Warning: Failed prop type: Invalid prop `suit`: must be `spades`, `hearts`, `diamonds`, or `clubs`.\n    in Card'
+        'Warning: Failed prop type: Invalid prop `suit` of type `string` supplied.\nMust be `spades`, `hearts`, `diamonds`, or `clubs`.\n    in Card'
       )).to.equal(true);
     }));
 
@@ -117,7 +117,7 @@ describe('createPropType', () => {
       );
 
       expect(errorStub.calledWithExactly(
-        'Warning: Failed prop type: Invalid prop `value`: must be an integer from 1 - 12.\n    in Card'
+        'Warning: Failed prop type: Invalid prop `value` of type `number` supplied.\nMust be an integer from 1 - 12.\n    in Card'
       )).to.equal(true);
     }));
   });
@@ -131,21 +131,21 @@ describe('createPropType', () => {
       );
 
       expect(errorStub.calledWithExactly(
-        'Warning: Failed prop type: Invalid createPropType input: callback parameter must evaluate to a boolean value. See https://github.com/jackrzhang/react-custom-proptypes#parameters for details.\n    in InvalidCallbackUsage'
+        'Warning: Failed prop type: Invalid createPropType input: callback parameter must evaluate to a boolean value.\nSee https://github.com/jackrzhang/react-custom-proptypes#parameters for details.\n    in InvalidCallbackUsage'
       )).to.equal(true);
     }));
   });
 
-  describe('<InvalidMessageUsage />', () => {
-    it('should notify developer of incorrect usage of `message` parameter',
+  describe('<InvalidDescriptionUsage />', () => {
+    it('should notify developer of incorrect usage of `description` parameter',
     sinon.test(function () {
       const errorStub = this.stub(console, 'error');
       shallow(
-        <InvalidMessageUsage text={'Dummy text'} />
+        <InvalidDescriptionUsage text={'Dummy text'} />
       );
 
       expect(errorStub.calledWithExactly(
-        'Warning: Failed prop type: Invalid createPropType input: message parameter must be of type string. See https://github.com/jackrzhang/react-custom-proptypes#parameters for details.\n    in InvalidMessageUsage'
+        'Warning: Failed prop type: Invalid createPropType input: description parameter must be of type string.\nSee https://github.com/jackrzhang/react-custom-proptypes#parameters for details.\n    in InvalidDescriptionUsage'
       )).to.equal(true);
     }));
   });

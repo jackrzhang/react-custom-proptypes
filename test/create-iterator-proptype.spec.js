@@ -7,7 +7,7 @@ import { shallow } from 'enzyme';
 import TweetFeed from './../examples/create-iterator-proptype/TweetFeed';
 import CardDeck from './../examples/create-iterator-proptype/CardDeck';
 import InvalidCallbackUsage from './../examples/create-iterator-proptype/InvalidCallbackUsage';
-import InvalidMessageUsage from './../examples/create-iterator-proptype/InvalidMessageUsage';
+import InvalidDescriptionUsage from './../examples/create-iterator-proptype/InvalidDescriptionUsage';
 
 describe('createIteratorPropType', () => {
   describe('<TweetFeed />', () => {
@@ -47,7 +47,7 @@ describe('createIteratorPropType', () => {
       );
 
       expect(errorStub.calledWithExactly(
-        'Warning: Failed prop type: Invalid prop `tweets[0]` supplied to `TweetFeed`. Validation failed.\n    in TweetFeed'
+        'Warning: Failed prop type: Invalid prop `tweets[0]` of type `number` supplied.\n    in TweetFeed'
       )).to.equal(true);
     }));
   });
@@ -118,7 +118,7 @@ describe('createIteratorPropType', () => {
       );
 
       expect(errorStub.calledWithExactly(
-        'Warning: Failed prop type: Invalid prop `cards.1` supplied to `CardDeck`. Validation failed.\n    in CardDeck'
+        'Warning: Failed prop type: Invalid prop `cards.65` of type `object` supplied.\n    in CardDeck'
       )).to.equal(true);
     }));
   });
@@ -132,21 +132,21 @@ describe('createIteratorPropType', () => {
       );
 
       expect(errorStub.calledWithExactly(
-        'Warning: Failed prop type: Invalid createIteratorPropType input: callback parameter must evaluate to a boolean value. See https://github.com/jackrzhang/react-custom-proptypes#parameters for details.\n    in InvalidCallbackUsage'
+        'Warning: Failed prop type: Invalid createIteratorPropType input:\ncallback parameter must evaluate to a boolean value. \nSee https://github.com/jackrzhang/react-custom-proptypes#parameters for details.\n    in InvalidCallbackUsage'
       )).to.equal(true);
     }));
   });
 
-  describe('<InvalidMessageUsage />', () => {
-    it('should notify developer of incorrect usage of `message` parameter',
+  describe('<InvalidDescriptionUsage />', () => {
+    it('should notify developer of incorrect usage of `description` parameter',
     sinon.test(function () {
       const errorStub = this.stub(console, 'error');
       shallow(
-        <InvalidMessageUsage text={'Dummy text'} />
+        <InvalidDescriptionUsage text={'Dummy text'} />
       );
 
       expect(errorStub.calledWithExactly(
-        'Warning: Failed prop type: Invalid createIteratorPropType input:message parameter must be of type string. See https://github.com/jackrzhang/react-custom-proptypes#parameters for details.\n    in InvalidMessageUsage'
+        'Warning: Failed prop type: Invalid createIteratorPropType input:\ndescription parameter must be of type string.\nSee https://github.com/jackrzhang/react-custom-proptypes#parameters for details.\n    in InvalidDescriptionUsage'
       )).to.equal(true);
     }));
   });

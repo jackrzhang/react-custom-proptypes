@@ -15,15 +15,15 @@ $ npm install react react-dom react-custom-proptypes --save
 ## createPropType
 ### Syntax
 ```
-createPropType(callback[, message])
+createPropType(callback[, description])
 ```
 
 ### Parameters
 ##### `callback` : function
 Function that returns a boolean representing the validation of the proptype, taking a single argument: `prop`, the value of the prop
 
-##### `message` : string
-Optional. Use this value to specify a custom error message.
+##### `description` : string
+Optional. Use this value to specify a helpful description.
 
 ### Usage
 ```jsx
@@ -43,7 +43,7 @@ const suitPropType = createPropType(
     prop === 'hearts' ||
     prop === 'diamonds' ||
     prop === 'clubs',
-  'Invalid prop `suit`: must be `spades`, `hearts`, `diamonds`, or `clubs`.'
+  'Must be `spades`, `hearts`, `diamonds`, or `clubs`.'
 );
 
 const valuePropType = createPropType(
@@ -51,7 +51,7 @@ const valuePropType = createPropType(
     Number.isInteger(prop) &&
     prop >= 1 &&
     prop <= 12,
-  'Invalid prop `value`: must be an integer from 1 - 12.'
+  'Must be an integer from 1 - 12.'
 );
 
 Card.propTypes = {
@@ -65,7 +65,7 @@ export default Card;
 ## createIteratorPropType
 ### Syntax
 ```
-createIteratorPropType(callback[, message])
+createIteratorPropType(callback[, description])
 ```
 
 ### Parameters
@@ -74,8 +74,8 @@ Function that returns a boolean representing the validation of the proptype, tak
  * `prop` - the value of the prop
  * `key` - the key of the current element being processed in the iterable object.
 
-##### `message` : string
-Optional. Use this value to specify a custom error message.
+##### `description` : string
+Optional. Use this value to specify a helpful description.
 
 ### Usage
 ```jsx

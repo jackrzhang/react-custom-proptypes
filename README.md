@@ -2,6 +2,7 @@
 [![Build Status](https://travis-ci.org/jackrzhang/react-custom-proptypes.svg?branch=master)](https://travis-ci.org/jackrzhang/react-custom-proptypes)
 [![dependencies Status](https://david-dm.org/jackrzhang/react-custom-proptypes/status.svg)](https://david-dm.org/jackrzhang/react-custom-proptypes)
 [![npm](https://img.shields.io/npm/v/react-custom-proptypes.svg)](https://www.npmjs.com/package/react-custom-proptypes)
+![npm](https://img.shields.io/npm/dt/react-custom-proptypes.svg)
 
 React Custom PropTypes exposes a simple API for creating **precisely defined**, **dependency-free**, and **chainable** React PropType validators.
 

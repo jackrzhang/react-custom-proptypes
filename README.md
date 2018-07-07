@@ -28,7 +28,7 @@ Optional. Use this value to specify a helpful description.
 ### Usage
 ```jsx
 import React from 'react';
-import { createPropType } from './../../lib/custom-proptypes';
+import { createPropType } from 'react-custom-proptypes';
 
 const Card = props => (
   <div>

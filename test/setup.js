@@ -1,9 +1,10 @@
 require('babel-core/register');
 
-const jsdom = require('jsdom').jsdom;
+const { JSDOM } = require('jsdom');
 const exposedProperties = ['window', 'navigator', 'document'];
 
-global.document = jsdom('');
+const { document } = (new JSDOM('', { url: 'http://localhost' })).window;
+global.document = document;
 
 global.window = document.defaultView;
 Object.keys(document.defaultView).forEach((property) => {

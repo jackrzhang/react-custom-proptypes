@@ -8,7 +8,7 @@ const InvalidCallbackUsage = ({ text }) => (
 InvalidCallbackUsage.propTypes = {
   text: createPropType(
     prop => `A boolean value is required to validate ${prop}`
-  )
+  ).isRequired
 };
 
 export default InvalidCallbackUsage;

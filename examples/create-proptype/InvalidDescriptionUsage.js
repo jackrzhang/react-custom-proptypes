@@ -9,7 +9,7 @@ InvalidDescriptionUsage.propTypes = {
   text: createPropType(
     prop => typeof prop === 'string',
     ['A custom description should be passed in as a value of type string.']
-  )
+  ).isRequired
 };
 
 export default InvalidDescriptionUsage;

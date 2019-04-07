@@ -31,10 +31,10 @@ Optional. Use this value to specify a helpful description.
 import React from 'react';
 import { createPropType } from 'react-custom-proptypes';
 
-const Card = props => (
+const Card = ({ suit, value }) => (
   <div>
-    <div>{props.suit}</div>
-    <div>{props.value}</div>
+    <div>{suit}</div>
+    <div>{value}</div>
   </div>
 );
 
@@ -84,9 +84,9 @@ import React from 'react';
 import { PropTypes } from 'prop-types';
 import { createIteratorPropType } from 'react-custom-proptypes';
 
-const TweetFeed = props => (
+const TweetFeed = ({ tweets }) => (
   <div>
-    {props.tweets.map((tweet, index) => (
+    {tweets.map((tweet, index) => (
       <div key={index}>{tweet}</div>
     ))}
   </div>

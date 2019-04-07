@@ -2,12 +2,12 @@ import React from 'react';
 import { PropTypes } from 'prop-types';
 import { createIteratorPropType } from '../../lib/custom-proptypes';
 
-const CardDeck = props => (
+const CardDeck = ({ cards }) => (
   <div>
-    {Object.keys(props.cards).map(key => (
+    {Object.keys(cards).map(key => (
       <div key={key}>
-        <div>{props.cards[key].suit}</div>
-        <div>{props.cards[key].value}</div>
+        <div>{cards[key].suit}</div>
+        <div>{cards[key].value}</div>
       </div>
     ))}
   </div>

@@ -1,8 +1,8 @@
 import React from 'react';
 import { createPropType } from '../../lib/custom-proptypes';
 
-const InvalidCallbackUsage = props => (
-  <div>{props.text}</div>
+const InvalidCallbackUsage = ({ text }) => (
+  <div>{text}</div>
 );
 
 InvalidCallbackUsage.propTypes = {

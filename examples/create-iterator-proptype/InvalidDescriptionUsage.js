@@ -1,8 +1,8 @@
 import React from 'react';
 import { createIteratorPropType } from '../../lib/custom-proptypes';
 
-const InvalidDescriptionUsage = props => (
-  <div>{props.text}</div>
+const InvalidDescriptionUsage = ({ text }) => (
+  <div>{text}</div>
 );
 
 InvalidDescriptionUsage.propTypes = {

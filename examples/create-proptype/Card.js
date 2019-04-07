@@ -1,10 +1,10 @@
 import React from 'react';
 import { createPropType } from '../../lib/custom-proptypes';
 
-const Card = props => (
+const Card = ({ suit, value }) => (
   <div>
-    <div>{props.suit}</div>
-    <div>{props.value}</div>
+    <div>{suit}</div>
+    <div>{value}</div>
   </div>
 );
 

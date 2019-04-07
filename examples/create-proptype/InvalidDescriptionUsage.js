@@ -1,8 +1,8 @@
 import React from 'react';
 import { createPropType } from '../../lib/custom-proptypes';
 
-const InvalidDescriptionUsage = props => (
-  <div>{props.text}</div>
+const InvalidDescriptionUsage = ({ text }) => (
+  <div>{text}</div>
 );
 
 InvalidDescriptionUsage.propTypes = {

@@ -86,8 +86,8 @@ import { createIteratorPropType } from 'react-custom-proptypes';
 
 const TweetFeed = ({ tweets }) => (
   <div>
-    {tweets.map((tweet, index) => (
-      <div key={index}>{tweet}</div>
+    {tweets.map(tweet => (
+      <div>{tweet}</div>
     ))}
   </div>
 );

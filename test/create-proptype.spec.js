@@ -14,14 +14,6 @@ const test = sinonTest(sinon);
 
 describe('createPropType', () => {
   describe('<Tweet />', () => {
-    it('should have prop(s): `text`', () => {
-      const wrapper = shallow(
-        <Tweet text={'Dummy tweet text'} />
-      );
-
-      expect(wrapper.props().text).to.be.defined;
-    });
-
     it('should require `text` prop to be supplied',
     test(function () {
       const errorStub = this.stub(console, 'error');
@@ -55,15 +47,6 @@ describe('createPropType', () => {
   });
 
   describe('<Card />', () => {
-    it('should have prop(s): `suit` & `value`', () => {
-      const wrapper = shallow(
-        <Card suit={'spades'} value={8} />
-      );
-
-      expect(wrapper.props().suit).to.be.defined;
-      expect(wrapper.props().value).to.be.defined;
-    });
-
     it('should require props `suit` & `value` to be supplied',
     test(function () {
       const errorStub = this.stub(console, 'error');

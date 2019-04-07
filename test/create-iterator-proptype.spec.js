@@ -14,12 +14,6 @@ const test = sinonTest(sinon);
 
 describe('createIteratorPropType', () => {
   describe('<TweetFeed />', () => {
-    const validTweets = [
-      'A tweet!',
-      'And another string',
-      'All tweets should be under 140 characters.'
-    ];
-
     const invalidTypeTweets = [
       24,
       [],
@@ -30,14 +24,6 @@ describe('createIteratorPropType', () => {
       'A tweet under 140 characters',
       'A tweet above 140 characters - asdflk;asdjfkl;asdjfl;asjdf;aksjdl;fajsld;fjalsd;fjas;dfjals;djfa;sjf;asdjf;asdjf;asdjf;asdjfasfa;sdfjasdfasdfasdfasdfkajlsdfals;df'
     ];
-
-    it('should have prop(s): `tweets`', () => {
-      const wrapper = shallow(
-        <TweetFeed tweets={validTweets} />
-      );
-
-      expect(wrapper.props().tweets).to.be.defined;
-    });
 
     it('should validate each element of prop `tweets` to be of type string and less than 140 characters',
     test(function () {
@@ -56,17 +42,6 @@ describe('createIteratorPropType', () => {
   });
 
   describe('<CardDeck />', () => {
-    const validCards = {
-      1: {
-        suit: 'spades',
-        value: 1
-      },
-      25: {
-        suit: 'clubs',
-        value: 1
-      }
-    };
-
     const invalidSuitCards = {
       1: {
         suit: 'invalid suit',
@@ -99,14 +74,6 @@ describe('createIteratorPropType', () => {
         value: 1
       }
     };
-
-    it('should have prop(s): `cards`', () => {
-      const wrapper = shallow(
-        <CardDeck cards={validCards} />
-      );
-
-      expect(wrapper.props().cards).to.be.defined;
-    });
 
     it('should validate `cards` prop to have keys that are numbers from 1 - 52 and ' +
        'elements that have valid suit and value properties',

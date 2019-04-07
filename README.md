@@ -10,7 +10,7 @@ Check out the [examples](https://github.com/jackrzhang/react-custom-proptypes/bl
 
 ## Installation
 ```sh
-$ npm install react react-dom react-custom-proptypes --save
+$ npm install react react-dom prop-types react-custom-proptypes --save
 ```
 
 ## createPropType
@@ -80,7 +80,8 @@ Optional. Use this value to specify a helpful description.
 
 ### Usage
 ```jsx
-import React, { PropTypes } from 'react';
+import React from 'react';
+import { PropTypes } from 'prop-types';
 import { createIteratorPropType } from 'react-custom-proptypes';
 
 const TweetFeed = props => (

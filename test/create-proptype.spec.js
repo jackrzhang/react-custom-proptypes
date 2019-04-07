@@ -5,10 +5,10 @@ import sinon from 'sinon';
 import sinonTest from 'sinon-test';
 import { shallow } from 'enzyme';
 
-import Tweet from './../examples/create-proptype/Tweet';
-import Card from './../examples/create-proptype/Card';
-import InvalidCallbackUsage from './../examples/create-proptype/InvalidCallbackUsage';
-import InvalidDescriptionUsage from './../examples/create-proptype/InvalidDescriptionUsage';
+import Tweet from '../examples/create-proptype/Tweet';
+import Card from '../examples/create-proptype/Card';
+import InvalidCallbackUsage from '../examples/create-proptype/InvalidCallbackUsage';
+import InvalidDescriptionUsage from '../examples/create-proptype/InvalidDescriptionUsage';
 
 const test = sinonTest(sinon);
 

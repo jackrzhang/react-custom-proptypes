@@ -1,5 +1,5 @@
 import React from 'react';
-import { createIteratorPropType } from './../../lib/custom-proptypes';
+import { createIteratorPropType } from '../../lib/custom-proptypes';
 
 const InvalidCallbackUsage = props => (
   <div>{props.text}</div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
-import { createIteratorPropType } from './../../lib/custom-proptypes';
+import { createIteratorPropType } from '../../lib/custom-proptypes';
 
 const CardDeck = props => (
   <div>

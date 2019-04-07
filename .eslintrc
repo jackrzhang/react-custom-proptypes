@@ -5,11 +5,6 @@
     "node": true,
     "mocha": true
   },
-  "ecmaFeatures": {
-    "generators": true,
-    "restParams": true,
-    "spread": true
-  },
   "rules": {
     "no-prototype-builtins": 0,
     "import/no-extraneous-dependencies": 0,

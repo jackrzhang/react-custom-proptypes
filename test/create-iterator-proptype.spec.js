@@ -96,7 +96,7 @@ describe('createIteratorPropType', () => {
     it('should notify developer of incorrect usage of `callback` parameter', test(function () {
       const errorStub = this.stub(console, 'error');
       shallow(
-        <InvalidCallbackUsage text={'Dummy text'} />
+        <InvalidCallbackUsage text="Dummy text" />
       );
 
       expect(errorStub.calledWithExactly(
@@ -109,7 +109,7 @@ describe('createIteratorPropType', () => {
     it('should notify developer of incorrect usage of `description` parameter', test(function () {
       const errorStub = this.stub(console, 'error');
       shallow(
-        <InvalidDescriptionUsage text={'Dummy text'} />
+        <InvalidDescriptionUsage text="Dummy text" />
       );
 
       expect(errorStub.calledWithExactly(

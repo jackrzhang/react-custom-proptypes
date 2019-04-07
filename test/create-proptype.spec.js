@@ -34,7 +34,7 @@ describe('createPropType', () => {
       shallow(
         <div>
           <Tweet text={42} />
-          <Tweet text={'asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfsadfasdfsadfasdfasdfasdfsadfsadfadfasdfasdfasdfasdfasdfsadfasdfasdfasdfsadfasfasfasfasdfasfasdfsafasf'} />
+          <Tweet text="asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfsadfasdfsadfasdfasdfasdfsadfsadfadfasdfasdfasdfasdfasdfsadfasdfasdfasdfsadfasfasfasfasdfasfasdfsafasf" />
         </div>
       );
 
@@ -59,7 +59,7 @@ describe('createPropType', () => {
         'Warning: Failed prop type: The `suit` is marked as required in `Card`, but its value is `null`.\n    in Card'
       )).to.equal(true);
 
-      shallow(<Card suit={'spades'} />);
+      shallow(<Card suit="spades" />);
 
       expect(errorStub.calledWithExactly(
         'Warning: Failed prop type: The `value` is marked as required in `Card`, but its value is `undefined`.\n    in Card'
@@ -76,7 +76,7 @@ describe('createPropType', () => {
       const errorStub = this.stub(console, 'error');
       shallow(
         <div>
-          <Card suit={'invalid string'} value={8} />
+          <Card suit="invalid string" value={8} />
           <Card suit={24} value={8} />
           <Card suit={[]} value={8} />
         </div>
@@ -91,9 +91,9 @@ describe('createPropType', () => {
       const errorStub = this.stub(console, 'error');
       shallow(
         <div>
-          <Card suit={'clubs'} value={NaN} />
-          <Card suit={'clubs'} value={24} />
-          <Card suit={'clubs'} value={0} />
+          <Card suit="clubs" value={NaN} />
+          <Card suit="clubs" value={24} />
+          <Card suit="clubs" value={0} />
         </div>
       );
 
@@ -107,7 +107,7 @@ describe('createPropType', () => {
     it('should notify developer of incorrect usage of `callback` parameter', test(function () {
       const errorStub = this.stub(console, 'error');
       shallow(
-        <InvalidCallbackUsage text={'Dummy text'} />
+        <InvalidCallbackUsage text="Dummy text" />
       );
 
       expect(errorStub.calledWithExactly(
@@ -120,7 +120,7 @@ describe('createPropType', () => {
     it('should notify developer of incorrect usage of `description` parameter', test(function () {
       const errorStub = this.stub(console, 'error');
       shallow(
-        <InvalidDescriptionUsage text={'Dummy text'} />
+        <InvalidDescriptionUsage text="Dummy text" />
       );
 
       expect(errorStub.calledWithExactly(

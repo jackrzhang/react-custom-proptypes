@@ -25,8 +25,7 @@ describe('createIteratorPropType', () => {
       'A tweet above 140 characters - asdflk;asdjfkl;asdjfl;asjdf;aksjdl;fajsld;fjalsd;fjas;dfjals;djfa;sjf;asdjf;asdjf;asdjf;asdjfasfa;sdfjasdfasdfasdfasdfkajlsdfals;df'
     ];
 
-    it('should validate each element of prop `tweets` to be of type string and less than 140 characters',
-    test(function () {
+    it('should validate each element of prop `tweets` to be of type string and less than 140 characters', test(function () {
       const errorStub = this.stub(console, 'error');
       shallow(
         <div>
@@ -94,8 +93,7 @@ describe('createIteratorPropType', () => {
   });
 
   describe('<InvalidCallbackUsage />', () => {
-    it('should notify developer of incorrect usage of `callback` parameter',
-    test(function () {
+    it('should notify developer of incorrect usage of `callback` parameter', test(function () {
       const errorStub = this.stub(console, 'error');
       shallow(
         <InvalidCallbackUsage text={'Dummy text'} />
@@ -108,8 +106,7 @@ describe('createIteratorPropType', () => {
   });
 
   describe('<InvalidDescriptionUsage />', () => {
-    it('should notify developer of incorrect usage of `description` parameter',
-    test(function () {
+    it('should notify developer of incorrect usage of `description` parameter', test(function () {
       const errorStub = this.stub(console, 'error');
       shallow(
         <InvalidDescriptionUsage text={'Dummy text'} />

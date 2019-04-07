@@ -14,8 +14,7 @@ const test = sinonTest(sinon);
 
 describe('createPropType', () => {
   describe('<Tweet />', () => {
-    it('should require `text` prop to be supplied',
-    test(function () {
+    it('should require `text` prop to be supplied', test(function () {
       const errorStub = this.stub(console, 'error');
       shallow(<Tweet />);
 
@@ -30,8 +29,7 @@ describe('createPropType', () => {
       )).to.equal(true);
     }));
 
-    it('should validate `text` prop to be of type string and less than 140 characters',
-    test(function () {
+    it('should validate `text` prop to be of type string and less than 140 characters', test(function () {
       const errorStub = this.stub(console, 'error');
       shallow(
         <div>
@@ -47,8 +45,7 @@ describe('createPropType', () => {
   });
 
   describe('<Card />', () => {
-    it('should require props `suit` & `value` to be supplied',
-    test(function () {
+    it('should require props `suit` & `value` to be supplied', test(function () {
       const errorStub = this.stub(console, 'error');
       shallow(<Card value={8} />);
 
@@ -75,8 +72,7 @@ describe('createPropType', () => {
       )).to.equal(true);
     }));
 
-    it('should validate `suit` prop to be `spades`, `hearts`, `diamonds`, or `clubs`.',
-    test(function () {
+    it('should validate `suit` prop to be `spades`, `hearts`, `diamonds`, or `clubs`.', test(function () {
       const errorStub = this.stub(console, 'error');
       shallow(
         <div>
@@ -91,8 +87,7 @@ describe('createPropType', () => {
       )).to.equal(true);
     }));
 
-    it('should validate `value` prop to be an integer from 1 to 12',
-    test(function () {
+    it('should validate `value` prop to be an integer from 1 to 12', test(function () {
       const errorStub = this.stub(console, 'error');
       shallow(
         <div>
@@ -109,8 +104,7 @@ describe('createPropType', () => {
   });
 
   describe('<InvalidCallbackUsage />', () => {
-    it('should notify developer of incorrect usage of `callback` parameter',
-    test(function () {
+    it('should notify developer of incorrect usage of `callback` parameter', test(function () {
       const errorStub = this.stub(console, 'error');
       shallow(
         <InvalidCallbackUsage text={'Dummy text'} />
@@ -123,8 +117,7 @@ describe('createPropType', () => {
   });
 
   describe('<InvalidDescriptionUsage />', () => {
-    it('should notify developer of incorrect usage of `description` parameter',
-    test(function () {
+    it('should notify developer of incorrect usage of `description` parameter', test(function () {
       const errorStub = this.stub(console, 'error');
       shallow(
         <InvalidDescriptionUsage text={'Dummy text'} />

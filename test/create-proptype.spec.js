@@ -2,12 +2,15 @@
 import React from 'react';
 import { expect } from 'chai';
 import sinon from 'sinon';
+import sinonTest from 'sinon-test';
 import { shallow } from 'enzyme';
 
 import Tweet from './../examples/create-proptype/Tweet';
 import Card from './../examples/create-proptype/Card';
 import InvalidCallbackUsage from './../examples/create-proptype/InvalidCallbackUsage';
 import InvalidDescriptionUsage from './../examples/create-proptype/InvalidDescriptionUsage';
+
+const test = sinonTest(sinon);
 
 describe('createPropType', () => {
   describe('<Tweet />', () => {
@@ -20,7 +23,7 @@ describe('createPropType', () => {
     });
 
     it('should require `text` prop to be supplied',
-    sinon.test(function () {
+    test(function () {
       const errorStub = this.stub(console, 'error');
       shallow(<Tweet />);
 
@@ -36,7 +39,7 @@ describe('createPropType', () => {
     }));
 
     it('should validate `text` prop to be of type string and less than 140 characters',
-    sinon.test(function () {
+    test(function () {
       const errorStub = this.stub(console, 'error');
       shallow(
         <div>
@@ -62,7 +65,7 @@ describe('createPropType', () => {
     });
 
     it('should require props `suit` & `value` to be supplied',
-    sinon.test(function () {
+    test(function () {
       const errorStub = this.stub(console, 'error');
       shallow(<Card value={8} />);
 
@@ -90,7 +93,7 @@ describe('createPropType', () => {
     }));
 
     it('should validate `suit` prop to be `spades`, `hearts`, `diamonds`, or `clubs`.',
-    sinon.test(function () {
+    test(function () {
       const errorStub = this.stub(console, 'error');
       shallow(
         <div>
@@ -106,7 +109,7 @@ describe('createPropType', () => {
     }));
 
     it('should validate `value` prop to be an integer from 1 to 12',
-    sinon.test(function () {
+    test(function () {
       const errorStub = this.stub(console, 'error');
       shallow(
         <div>
@@ -124,7 +127,7 @@ describe('createPropType', () => {
 
   describe('<InvalidCallbackUsage />', () => {
     it('should notify developer of incorrect usage of `callback` parameter',
-    sinon.test(function () {
+    test(function () {
       const errorStub = this.stub(console, 'error');
       shallow(
         <InvalidCallbackUsage text={'Dummy text'} />
@@ -138,7 +141,7 @@ describe('createPropType', () => {
 
   describe('<InvalidDescriptionUsage />', () => {
     it('should notify developer of incorrect usage of `description` parameter',
-    sinon.test(function () {
+    test(function () {
       const errorStub = this.stub(console, 'error');
       shallow(
         <InvalidDescriptionUsage text={'Dummy text'} />

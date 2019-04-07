@@ -2,12 +2,15 @@
 import React from 'react';
 import { expect } from 'chai';
 import sinon from 'sinon';
+import sinonTest from 'sinon-test';
 import { shallow } from 'enzyme';
 
 import TweetFeed from './../examples/create-iterator-proptype/TweetFeed';
 import CardDeck from './../examples/create-iterator-proptype/CardDeck';
 import InvalidCallbackUsage from './../examples/create-iterator-proptype/InvalidCallbackUsage';
 import InvalidDescriptionUsage from './../examples/create-iterator-proptype/InvalidDescriptionUsage';
+
+const test = sinonTest(sinon);
 
 describe('createIteratorPropType', () => {
   describe('<TweetFeed />', () => {
@@ -37,7 +40,7 @@ describe('createIteratorPropType', () => {
     });
 
     it('should validate each element of prop `tweets` to be of type string and less than 140 characters',
-    sinon.test(function () {
+    test(function () {
       const errorStub = this.stub(console, 'error');
       shallow(
         <div>
@@ -107,7 +110,7 @@ describe('createIteratorPropType', () => {
 
     it('should validate `cards` prop to have keys that are numbers from 1 - 52 and ' +
        'elements that have valid suit and value properties',
-    sinon.test(function () {
+    test(function () {
       const errorStub = this.stub(console, 'error');
       shallow(
         <div>
@@ -125,7 +128,7 @@ describe('createIteratorPropType', () => {
 
   describe('<InvalidCallbackUsage />', () => {
     it('should notify developer of incorrect usage of `callback` parameter',
-    sinon.test(function () {
+    test(function () {
       const errorStub = this.stub(console, 'error');
       shallow(
         <InvalidCallbackUsage text={'Dummy text'} />
@@ -139,7 +142,7 @@ describe('createIteratorPropType', () => {
 
   describe('<InvalidDescriptionUsage />', () => {
     it('should notify developer of incorrect usage of `description` parameter',
-    sinon.test(function () {
+    test(function () {
       const errorStub = this.stub(console, 'error');
       shallow(
         <InvalidDescriptionUsage text={'Dummy text'} />

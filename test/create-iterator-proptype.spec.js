@@ -35,7 +35,7 @@ describe('createIteratorPropType', () => {
       );
 
       expect(errorStub.calledWithExactly(
-        'Warning: Failed prop type: Invalid prop `tweets[0]` of type `Number` supplied.\n    in TweetFeed'
+        'Warning: Failed prop type: Invalid prop `tweets[0]` supplied of type `Number`.\n    in TweetFeed'
       )).to.equal(true);
     }));
   });
@@ -87,7 +87,7 @@ describe('createIteratorPropType', () => {
       );
 
       expect(errorStub.calledWithExactly(
-        'Warning: Failed prop type: Invalid prop `cards.65` of type `Object` supplied.\n    in CardDeck'
+        'Warning: Failed prop type: Invalid prop `cards.65` supplied of type `Object`.\n    in CardDeck'
       )).to.equal(true);
     }));
   });

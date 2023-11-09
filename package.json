@@ -28,7 +28,7 @@
     "build": "mkdir -p build && ./node_modules/.bin/babel ./lib --out-dir ./build",
     "prepublish": "npm run build",
     "lint": "./node_modules/.bin/eslint lib examples test",
-    "test": "./node_modules/.bin/mocha --sort --reporter spec --require test/setup.js test/**/*.spec.js"
+    "test": "./node_modules/.bin/mocha --exit --sort --reporter spec --require test/setup.js test/**/*.spec.js"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.3",

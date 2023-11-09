@@ -1,6 +1,7 @@
+dist: focal
 language: node_js
 node_js:
-  - "node"
+  - "stable"
 script:
   - npm run lint
   - npm test

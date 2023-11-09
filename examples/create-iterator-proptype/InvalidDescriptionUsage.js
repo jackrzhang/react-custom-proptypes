@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { createIteratorPropType } from '../../lib/custom-proptypes';
 
 const InvalidDescriptionUsage = ({ text }) => (
@@ -6,10 +7,10 @@ const InvalidDescriptionUsage = ({ text }) => (
 );
 
 InvalidDescriptionUsage.propTypes = {
-  text: createIteratorPropType(
+  text: PropTypes.arrayOf(createIteratorPropType(
     prop => typeof prop === 'string',
     ['A custom description should be passed in as a value of type string.']
-  ).isRequired
+  )).isRequired
 };
 
 export default InvalidDescriptionUsage;

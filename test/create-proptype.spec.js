@@ -39,7 +39,7 @@ describe('createPropType', () => {
       );
 
       expect(errorStub.calledWithExactly(
-        'Warning: Failed prop type: Invalid prop `text` of type `number` supplied.\n    in Tweet'
+        'Warning: Failed prop type: Invalid prop `text` of type `Number` supplied.\n    in Tweet'
       )).to.equal(true);
     }));
   });
@@ -83,7 +83,7 @@ describe('createPropType', () => {
       );
 
       expect(errorStub.calledWithExactly(
-        'Warning: Failed prop type: Invalid prop `suit` of type `string` supplied.\nMust be `spades`, `hearts`, `diamonds`, or `clubs`.\n    in Card'
+        'Warning: Failed prop type: Invalid prop `suit` of type `String` supplied.\nMust be `spades`, `hearts`, `diamonds`, or `clubs`.\n    in Card'
       )).to.equal(true);
     }));
 
@@ -98,7 +98,7 @@ describe('createPropType', () => {
       );
 
       expect(errorStub.calledWithExactly(
-        'Warning: Failed prop type: Invalid prop `value` of type `number` supplied.\nMust be an integer from 1 - 12.\n    in Card'
+        'Warning: Failed prop type: Invalid prop `value` of type `Number` supplied.\nMust be an integer from 1 - 12.\n    in Card'
       )).to.equal(true);
     }));
   });

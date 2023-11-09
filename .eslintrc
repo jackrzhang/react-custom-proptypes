@@ -15,6 +15,7 @@
     "comma-dangle": 0,
     "react/prefer-stateless-function": 0,
     "operator-linebreak": 0,
-    "implicit-arrow-linebreak": 0
+    "implicit-arrow-linebreak": 0,
+    "no-use-before-define": 0
   }
 }
